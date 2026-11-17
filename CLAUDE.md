@@ -52,7 +52,7 @@ AX(AI Transformation) 역량을 쌓으려고 처음부터 만드는 개인 학�
 - [x] Vite 프로젝트 생성 (`client/`, React + TypeScript, ESLint)
 - [x] 생성된 파일 구조 설명 (index.html → main.tsx → App.tsx, useState 카운터 예제)
 - [x] App.tsx 템플릿 정리 (`<h1>내 메모 앱</h1>`만 남김)
-- [ ] `src/types.ts`의 `Memo` 타입 작성 — 작성했고 리뷰함, 수정 반영 전
+- [x] `src/types.ts`의 `Memo` 타입 작성 (id·title·content·createdAt, 모두 string)
 - [ ] MemoForm (메모 추가)
 - [ ] MemoList, MemoItem (목록 표시)
 - [ ] 삭제
@@ -60,7 +60,4 @@ AX(AI Transformation) 역량을 쌓으려고 처음부터 만드는 개인 학�
 - [ ] localStorage 저장
 
 ## 다음 할 일
-1. `client/src/types.ts` 리뷰 반영
-   - 설명용 예시로 넣은 `User` 인터페이스 삭제
-   - `Memo.id`를 `number` → `string`으로 변경 (`crypto.randomUUID()`가 문자열을 돌려주기 때문)
-2. MemoForm 컴포넌트: 제목·내용 입력 + [추가] 버튼. `useState`로 입력값 다루기 개념 설명부터 시작
+1. MemoForm 컴포넌트: 제목·내용 입력 + [추가] 버튼. `useState`로 입력값 다루기 개념 설명부터 시작
