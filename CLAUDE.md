@@ -31,7 +31,7 @@ AX(AI Transformation) 역량을 쌓으려고 처음부터 만드는 개인 학�
 ## 단계별 계획
 | 단계 | 만드는 것 | 배우는 것 | 상태 |
 |---|---|---|---|
-| 1. 화면 | 메모 추가·수정·삭제 화면 (데이터는 브라우저에만 저장) | React, TypeScript, 컴포넌트, useState | 시작 전 |
+| 1. 화면 | 메모 추가·수정·삭제 화면 (데이터는 브라우저에만 저장) | React, TypeScript, 컴포넌트, useState | 진행 중 |
 | 2. 서버 | 메모를 저장하는 API 서버 + DB | Node.js, REST API, SQLite, 화면↔서버 통신 | 시작 전 |
 | 3. MCP 서버 | Claude Code / Claude Desktop에서 "회의 관련 메모 찾아줘"가 되게 하기 | MCP 개념, tool 정의, AI의 tool 호출 흐름 | 시작 전 |
 | 4. 앱 내 AI 채팅 | 앱 화면에서 AI와 대화하며 메모 조작 | Claude API, Tool Use, 스트리밍 | 시작 전 |
@@ -41,6 +41,26 @@ AX(AI Transformation) 역량을 쌓으려고 처음부터 만드는 개인 학�
 - 4~5단계는 Claude API 키가 필요하고 사용량만큼 과금된다.
 - 단계를 마칠 때마다 위 표의 "상태"를 갱신한다.
 
+## 개발 환경 메모
+- 화면 프로젝트는 `client/` 폴더에 있다. `npm run dev`는 반드시 `client/`에서 실행한다. (루트에는 package.json이 없다)
+- 새 컴퓨터에서 처음 시작할 때: `git clone` → `cd client` → `npm install` → `npm run dev`
+- 회사·집 컴퓨터를 오가며 작업한다. 대화 기록은 컴퓨터끼리 공유되지 않으므로, 작업을 마칠 때 아래 "진행 상황"과 "다음 할 일"을 갱신하고 push한다.
+
+## 진행 상황 (1단계)
+- [x] Node.js 확인 (v22.17.0, npm 10.9.2)
+- [x] GitHub 레포 연결 (`origin` → peesechizza/ai-memo-app, 브랜치 `main`)
+- [x] Vite 프로젝트 생성 (`client/`, React + TypeScript, ESLint)
+- [x] 생성된 파일 구조 설명 (index.html → main.tsx → App.tsx, useState 카운터 예제)
+- [x] App.tsx 템플릿 정리 (`<h1>내 메모 앱</h1>`만 남김)
+- [ ] `src/types.ts`의 `Memo` 타입 작성 — 작성했고 리뷰함, 수정 반영 전
+- [ ] MemoForm (메모 추가)
+- [ ] MemoList, MemoItem (목록 표시)
+- [ ] 삭제
+- [ ] 수정
+- [ ] localStorage 저장
+
 ## 다음 할 일
-1. Node.js 설치 여부 확인 (`node -v`, `npm -v`)
-2. 1단계: React 화면 구조 설명부터 시작
+1. `client/src/types.ts` 리뷰 반영
+   - 설명용 예시로 넣은 `User` 인터페이스 삭제
+   - `Memo.id`를 `number` → `string`으로 변경 (`crypto.randomUUID()`가 문자열을 돌려주기 때문)
+2. MemoForm 컴포넌트: 제목·내용 입력 + [추가] 버튼. `useState`로 입력값 다루기 개념 설명부터 시작
